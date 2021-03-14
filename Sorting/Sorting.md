@@ -2,7 +2,7 @@
 tags: [C++, ds-algo]
 title: Sorting
 created: '2021-02-21T18:53:24.808Z'
-modified: '2021-03-11T20:34:00.405Z'
+modified: '2021-03-14T19:01:33.712Z'
 ---
 
 # Sorting
@@ -86,12 +86,12 @@ It is a divide and conquer algorithm. It divides the array into two parts and th
 > **Space Complexity**: O(n)
 > **Time Complexity**: O(n) But the traversal is happening 3 times
 
-- Lomuto Partition: (requires one traversal)
+- Lomuto Partition: (requires one traversal) (not stable)
 1. if you see smaller element increase the window of smaller elements and swap that with the pivot. (i is increased, swap(ith wih jth))
 2. You do nothing when you  visit a element greater than the pivot element.
 3. In the end swap the pivot with i+1 th element.
 
-- Hoare's Partition method(O(n) -> takes less number of comparisions.)
+- Hoare's Partition method(O(n) -> takes less number of comparisions.) (not stable)
 1. i = start-1 , j=end+1
 2. We increment i and decrement j. Also we stop when they cross or meet each other.
 3. Keep increment until you find the greater element.
@@ -99,5 +99,28 @@ It is a divide and conquer algorithm. It divides the array into two parts and th
 5. Keep repeating the process
 6. when i and j cross each other return j
 7. swap if they havent crossed
+
+### Quick Sort (Preffered for arrays)
+This is based on Divide and Conquer algo. The key part is partitioning.
+- Division here is partition based and thus the partitioning can be called recursively.
+- Despite the higher worst case time, it is preferred over other algorithms as:
+  - Tail Recurssive (extra space used can be removed)
+  - In Place (No extra space is required)
+  - Cache Friendly (Same as the second point.)
+  - Average com: O(nlogn)
+- To reduce the chances of getting worst case we try partitioning with randomn element.
+
+> **Time complexity**: O(n^2) (worst case) O(logn) (best case)
+> Constant Space Complexity -> No auxillary space used but some space is used for recurssion call stack.
+
+**NOTE**: Lomuto & Hoarse will turn sometime into worst case scenarios. Hence, it is considered better to use randomn pivot.
+Now how does this work:
+1. Generate a random number between the range.
+2. swap arr[r] with arr[p]
+3. Hoare's Algo.
+
+### Heap Sort:
+- Optimization over Selection sort. Here we are given an array then we restructure an array to maxheap or minheap and then heapify to sort the array. ( TO BE STUDIED PROPERLY )
+
 
 
