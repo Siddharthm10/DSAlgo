@@ -34,16 +34,16 @@ void bubble_sort_opt(int* arr, int n){
 }
 
 //optimized 2 -> early exit if the array is sorted.
-void bubble_sort_opt(int* arr, int n){
+void bubble_sort_opt1(int* arr, int n){
     for(int i=0; i<n; i++){
         bool swapped = false;
-        for(int j=1; j<n-i-1; j++){
+        for(int j=1; j<=n-i-1; j++){
             if(arr[j-1]>arr[j]){
                 swap(arr[j], arr[j-1]);
                 swapped=true;
             }  
         }
-        if(swapped) break;
+        if(!swapped) break;
     }
 }
 
@@ -58,7 +58,7 @@ int main()
     cout<<"Before sorting: ";
     print(arr,n);
     cout<<"After sorting: ";
-    bubble_sort(arr,n);
+    bubble_sort_opt1(arr,n);
     print(arr,n);
     
     return 0;
