@@ -57,7 +57,6 @@ int partition_h(int* arr, int start, int end){
 
 void quick_sort(int* arr, int start, int end){
     if(start<end){
-        // Here we are using lomuto partitioning
         int p = partition_h(arr, start, end);
         quick_sort(arr, start, p);
         quick_sort(arr, p+1, end);
